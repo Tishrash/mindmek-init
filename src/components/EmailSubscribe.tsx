@@ -87,51 +87,52 @@ export function EmailSubscribe() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full px-4">
-      {showSuccess && <SuccessPopup onClose={() => setShowSuccess(false)} />}
-      
-      <div className="w-full max-w-md">
-        <p className="text-center text-gray-400 mb-4">
-          Be the first to know when we launch
-        </p>
-        <form
-          id="form"
-          onSubmit={handleSubmit}
-          className="ml-[-100px] flex flex-col sm:flex-row gap-3"
-        >
-          {/* Name input */}
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your name"
-            value={formData.name}
-            onChange={handleChange}
-            className="flex-grow px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[#00AEEF] focus:border-transparent"
-            required
-          />
+   <div className="flex flex-col items-center justify-center w-full px-4 py-8">
+  {showSuccess && <SuccessPopup onClose={() => setShowSuccess(false)} />}
 
-          {/* Email input */}
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            value={formData.email}
-            onChange={handleChange}
-            className="flex-grow px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[#00AEEF] focus:border-transparent"
-            required
-          />
+  <div className="w-half max-w-2xl">
+    <p className="text-center text-gray-400 mb-4 text-sm sm:text-base">
+      Be the first to know when we launch
+    </p>
 
-          {/* Submit button */}
-          <button
-            type="submit"
-            className="self-center px-6 py-3 bg-[#00AEEF] text-white rounded-lg font-medium hover:bg-[#009ad3] transition-colors flex items-center justify-center whitespace-nowrap"
-            disabled={buttonText === "Sending..."}
-          >
-            <BellIcon className="w-5 h-5 mr-2" />
-            {buttonText}
-          </button>
-        </form>
-      </div>
-    </div>
+    <form
+      id="form"
+      onSubmit={handleSubmit}
+      className="flex flex-col sm:flex-row sm:items-center gap-3"
+    >
+      {/* Name input */}
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter your name"
+        value={formData.name}
+        onChange={handleChange}
+        className="w-half sm:w-3/3 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[#00AEEF] focus:border-transparent"
+        required
+      />
+
+      {/* Email input */}
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        value={formData.email}
+        onChange={handleChange}
+        className="w-half sm:w-3/3 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[#00AEEF] focus:border-transparent"
+        required
+      />
+
+      {/* Submit button */}
+      <button
+        type="submit"
+        className="w-full sm:w-auto px-6 py-3  bg-[#00AEEF] text-white rounded-lg font-medium hover:bg-[#009ad3] transition-colors flex items-center justify-center whitespace-nowrap"
+        disabled={buttonText === "Sending..."}
+      >
+        <BellIcon className="w-5 h-5 mr-2" />
+        {buttonText}
+      </button>
+    </form>
+  </div>
+</div>
   );
 }
